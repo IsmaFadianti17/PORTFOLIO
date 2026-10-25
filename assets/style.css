@@ -1,0 +1,2118 @@
+/* ==========================================================================
+   PORTFOLIO – style.css
+   --------------------------------------------------------------------------
+   DAFTAR ISI
+    1. Tokens (warna & mode gelap)
+    2. Base (reset, body, tipografi dasar)
+    3. Header & navigasi
+    4. Section & judul
+    5. Slot foto
+    6. Home
+    7. About (profil, sosial media, teks)
+    8. Skills
+    9. Education & Certifications
+   10. Projects (portfolio)
+   11. Galeri proyek (card foto + carousel)
+   12. Resume
+   13. Contact & form
+   14. Footer
+   15. Responsive, print & reduced motion
+   16. Transisi (halaman + masuk/keluar section)
+   17. Lain-lain
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. TOKENS
+   ========================================================================== */
+
+:root {
+    --paper: #EDF0F4;
+    --grid: #D3D9E3;
+    --ink: #1B2A4E;
+    --muted: #56637F;
+    --line: #B9C2D3;
+    --mark: #F4E04D;
+    --markink: #1B2A4E;
+    --card: #F8F9FB;
+    --pen: #2F5BEA;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Mode gelap otomatis (mengikuti sistem) */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --paper: #121A2E;
+        --grid: #1D2744;
+        --ink: #E7ECF7;
+        --muted: #98A5C2;
+        --line: #33405F;
+        --card: #18223C;
+        --pen: #8FAEFF;
+        --mark: #E8D43C;
+        --markink: #121A2E;
+    }
+}
+
+/* Mode gelap manual (tombol tema) */
+:root[data-theme="dark"] {
+    --paper: #121A2E;
+    --grid: #1D2744;
+    --ink: #E7ECF7;
+    --muted: #98A5C2;
+    --line: #33405F;
+    --card: #18223C;
+    --pen: #8FAEFF;
+    --mark: #E8D43C;
+    --markink: #121A2E;
+}
+
+
+/* ==========================================================================
+   2. BASE
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(64px + env(safe-area-inset-top, 0px));
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.65 "IBM Plex Sans", system-ui, sans-serif;
+    background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Bricolage Grotesque", "Arial Black", sans-serif;
+    line-height: 1.05;
+    margin: 0;
+    letter-spacing: -.02em;
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid var(--pen);
+    outline-offset: 3px;
+}
+
+.wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px);
+    background: var(--paper);
+    z-index: 10;
+}
+
+
+/* ==========================================================================
+   3. HEADER & NAVIGASI
+   ========================================================================== */
+
+header {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 9;
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
+}
+
+header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 16px;
+}
+
+.logo {
+    font: 800 20px "Bricolage Grotesque", sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+nav {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+nav a {
+    padding: 6px 12px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    background: var(--mark);
+    color: var(--markink);
+}
+
+/* Tombol ganti tema */
+#tema {
+    background: none;
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    font-size: 15px;
+    flex: none;
+}
+
+
+/* ==========================================================================
+   4. SECTION & JUDUL
+   ========================================================================== */
+
+section {
+    padding: 60px 0 40px;
+}
+
+.judul {
+    font-size: clamp(34px, 6vw, 52px);
+    margin-bottom: 36px;
+    display: inline-block;
+    background: linear-gradient(transparent 62%, var(--mark) 62%);
+}
+
+
+/* ==========================================================================
+   5. SLOT FOTO
+   ========================================================================== */
+
+.foto {
+    position: relative;
+    margin: 0;
+    border: 2px solid var(--ink);
+    background: var(--card);
+    box-shadow: 8px 8px 0 var(--ink);
+    cursor: pointer;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+}
+
+.foto img,
+.foto svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.foto figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 14px;
+    padding: 6px 12px;
+    text-align: center;
+}
+
+.foto.ada figcaption {
+    display: none;
+}
+
+.foto:hover figcaption {
+    background: var(--mark);
+    color: var(--markink);
+}
+
+
+/* ==========================================================================
+   6. HOME
+   ========================================================================== */
+
+#home {
+    padding-top: 72px;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.salam {
+    font-size: 20px;
+    margin: 0 0 16px;
+    color: #F4E04D;
+}
+
+h1 {
+    font-size: clamp(52px, 11vw, 116px);
+    font-weight: 800;
+    letter-spacing: -.045em;
+}
+
+h1 span {
+    display: block;
+}
+
+.peran {
+    font-size: clamp(10px, 2.6vw, 18px);
+    max-width: 35ch;
+    margin: 28px 0 32px;
+    font-family: "Bricolage Grotesque", "Arial Black", sans-serif;
+}
+
+.tombol {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Tombol umum */
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border: 2px solid var(--ink);
+    font: 500 17px "IBM Plex Sans", sans-serif;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform .12s, box-shadow .12s;
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--ink);
+}
+
+.btn.utama {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.herofoto {
+    position: relative;
+}
+
+.catatan {
+    position: absolute;
+    left: -36px;
+    bottom: -24px;
+    width: 220px;
+    background: var(--mark);
+    color: var(--markink);
+    padding: 14px 16px;
+    transform: rotate(-3deg);
+    box-shadow: 5px 6px 0 rgba(27, 42, 78, .25);
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.catatan b {
+    font: 700 17px "Bricolage Grotesque", sans-serif;
+    display: block;
+    margin-bottom: 4px;
+}
+
+
+/* ==========================================================================
+   7. ABOUT
+   ========================================================================== */
+
+.about {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about .ic {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex: none;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 380px) 1fr;
+    gap: 56px;
+    align-items: start;
+}
+
+/* ----- Card profil ----- */
+
+.profil {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-top-width: 3px;
+    border-radius: 32px;
+    box-shadow: 8px 8px 0 var(--ink);
+    padding: 40px 22px 24px;
+    text-align: center;
+}
+
+.avatar {
+    position: relative;
+    width: 180px;
+    margin: 0 auto 26px;
+}
+
+.avatar .foto {
+    width: 180px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 4px solid var(--ink);
+    box-shadow: none;
+    background: #C9D3E6;
+}
+
+.avatar .foto figcaption {
+    left: 14%;
+    right: 14%;
+    bottom: 12%;
+    font-size: 12px;
+    line-height: 1.3;
+    padding: 4px 8px;
+    border-radius: 99px;
+}
+
+.lencana {
+    position: absolute;
+    right: 2px;
+    bottom: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--mark);
+    color: var(--markink);
+    display: grid;
+    place-items: center;
+    border: 3px solid var(--card);
+}
+
+.lencana .ic {
+    width: 16px;
+    height: 16px;
+    stroke-width: 3;
+}
+
+.profil h3 {
+    margin: 0 0 4px;
+    font: 700 26px/1.2 "IBM Plex Sans", system-ui, sans-serif;
+    letter-spacing: 0;
+}
+
+.profil .peran {
+    margin: 0 0 28px;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--muted);
+}
+
+.kontak-list {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.kontak-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 18px;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.kontak-list a {
+    text-decoration: none;
+}
+
+/* ----- Sosial media di card profil ----- */
+
+.sosmed {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.sosmed a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--card);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    text-decoration: none;
+    transition: background .2s, color .2s, transform .2s;
+}
+
+.sosmed a:hover,
+.sosmed a:focus-visible {
+    background: var(--mark);
+    color: var(--markink);
+    transform: translateY(-3px);
+}
+
+.sosmed .brand {
+    fill: currentColor;
+    stroke: none;
+}
+
+.sosmed .ic {
+    width: 20px;
+    height: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sosmed a {
+        transition: none;
+    }
+}
+
+/* ----- Kolom teks ----- */
+
+.label-pill {
+    display: inline-block;
+    background: var(--mark);
+    color: var(--markink);
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 26px;
+    border-radius: 99px;
+    margin-bottom: 22px;
+}
+
+.about h2 {
+    margin: 0 0 26px;
+    font: 660 clamp(30px, 5vw, 40px)/1.15 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.teks p {
+    margin: 0 0 17px;
+    text-align: justify;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px 40px;
+    margin: 26px 0;
+}
+
+.info dt {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.info dd {
+    margin: 2px 0 0;
+    font-weight: 599;
+}
+
+.unduh {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ink);
+    color: var(--paper);
+    font: 600 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    padding: 15px 26px;
+    border-radius: 14px;
+    transition: background .15s, color .15s;
+}
+
+.unduh:hover {
+    background: var(--mark);
+    color: var(--markink);
+}
+
+
+/* ==========================================================================
+   8. SKILLS
+   ========================================================================== */
+
+#skills .skills-head {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.skills-label {
+    margin: 0 0 8px;
+    color: var(--pen);
+    font: 700 clamp(16px, 2.2vw, 20px) "IBM Plex Sans", system-ui, sans-serif;
+}
+
+.skills-title {
+    font-size: clamp(30px, 6.5vw, 60px);
+    font-weight: 650;
+    letter-spacing: -.03em;
+    line-height: 1.1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Tanpa kotak: kolom langsung di atas latar halaman */
+.skills-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px 32px;
+}
+
+.skill-col h3 {
+    position: relative;
+    margin: 0 0 10px;
+    padding-bottom: 10px;
+    font: 600 clamp(18px, 2.2vw, 20px);
+    letter-spacing: -.01em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.skill-col h3 span {
+    color: var(--pen);
+}
+
+.skill-col h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 48px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--mark);
+}
+
+.skill-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+}
+
+.skill-col li {
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ==========================================================================
+   9. EDUCATION & CERTIFICATIONS
+   Mengikuti tema utama portfolio
+   ========================================================================== */
+
+#education.edu-cert-section {
+    padding: 40px 0 40px;
+    color: var(--ink);
+    background: transparent;
+}
+
+/* Judul Education dan Certifications */
+.edu-cert-section .edu-cert-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 20px;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: clamp(20px, 5vw, 43px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.edu-cert-section .edu-cert-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.68em;
+    line-height: 1;
+}
+
+/* Timeline */
+.edu-cert-section .edu-cert-timeline {
+    position: relative;
+    margin: 0 0 38px 12px;
+    padding: 0 0 0 32px;
+    border-left: 2px solid var(--line);
+}
+
+/* Setiap item */
+.edu-cert-section .edu-cert-item {
+    position: relative;
+    min-width: 0;
+    margin: 0;
+    padding: 0 0 30px;
+}
+
+/* Titik timeline */
+.edu-cert-section .edu-cert-item::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -42px;
+    width: 17px;
+    height: 17px;
+    border: 3px solid var(--paper);
+    border-radius: 50%;
+    background: var(--ink);
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* Nama pendidikan dan sertifikasi */
+.edu-cert-section .edu-cert-item h3 {
+    margin: 0 0 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: clamp(17px, 2.5vw, 22px);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+}
+
+/* Tahun / periode */
+.edu-cert-section .edu-cert-date {
+    margin: 0 0 10px;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 550;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+/* Nama institusi */
+.edu-cert-section .edu-cert-institution {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 0 20px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+}
+
+.edu-cert-section .edu-cert-building {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid var(--line);
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1;
+}
+
+/* Daftar prestasi dan detail */
+.edu-cert-section .edu-cert-details {
+    margin: 0;
+    padding-left: 24px;
+    list-style: disc;
+}
+
+.edu-cert-section .edu-cert-details li {
+    margin: 0 0 10px;
+    padding-left: 2px;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+}
+
+.edu-cert-section .edu-cert-details li::marker {
+    color: var(--pen);
+}
+
+.edu-cert-section .edu-cert-details li:last-child {
+    margin-bottom: 0;
+}
+
+/* Judul Certifications */
+.edu-cert-section .edu-cert-cert-title {
+    margin-top: 12px;
+}
+
+/* Item terakhir timeline */
+.edu-cert-section .edu-cert-timeline
+.edu-cert-item:last-child {
+    padding-bottom: 15px;
+}
+
+/* ----- Responsive: Education & Certifications ----- */
+
+@media (max-width: 800px) {
+    #education.edu-cert-section {
+        padding: 72px 0 35px;
+    }
+
+    .edu-cert-section .edu-cert-title {
+        font-size: clamp(30px, 6vw, 42px);
+        margin-bottom: 28px;
+    }
+
+    .edu-cert-section .edu-cert-timeline {
+        margin-left: 10px;
+        padding-left: 27px;
+    }
+
+    .edu-cert-section .edu-cert-item::before {
+        left: -37px;
+        width: 15px;
+        height: 15px;
+    }
+
+    .edu-cert-section .edu-cert-item h3 {
+        font-size: 20px;
+    }
+
+    .edu-cert-section .edu-cert-date {
+        font-size: 15px;
+    }
+
+    .edu-cert-section .edu-cert-institution {
+        font-size: 15px;
+    }
+
+    .edu-cert-section .edu-cert-details li {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .edu-cert-section .edu-cert-title {
+        gap: 8px;
+        font-size: 29px;
+    }
+
+    .edu-cert-section .edu-cert-icon {
+        font-size: 22px;
+    }
+
+    .edu-cert-section .edu-cert-timeline {
+        margin-left: 8px;
+        padding-left: 23px;
+    }
+
+    .edu-cert-section .edu-cert-item::before {
+        left: -33px;
+        width: 13px;
+        height: 13px;
+    }
+
+    .edu-cert-section .edu-cert-item h3 {
+        font-size: 18px;
+    }
+
+    .edu-cert-section .edu-cert-details {
+        padding-left: 20px;
+    }
+
+    .edu-cert-section .edu-cert-details li {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+}
+
+/* Hormati pengaturan reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .edu-cert-section * {
+        scroll-behavior: auto;
+    }
+}
+
+
+/* ==========================================================================
+   10. PROJECTS (PORTFOLIO)
+   ========================================================================== */
+.judul{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.proyek {
+    border-top: 2px solid var(--ink);
+}
+
+.proyek details {
+    border-bottom: 2px solid var(--ink);
+}
+
+.proyek summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px 24px;
+    align-items: baseline;
+    padding: 22px 4px;
+}
+
+.proyek summary::-webkit-details-marker {
+    display: none;
+}
+
+.proyek summary:hover h3 {
+    background: var(--mark);
+    color: var(--markink);
+}
+
+.proyek h3 {
+    font-size: clamp(24px, 4vw, 36px);
+    display: inline;
+    padding: 0 4px;
+    margin-left: -4px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 650;
+}
+
+.jenis {
+    font-size: 15px;
+    color: var(--muted);
+}
+
+.proyek summary::after {
+    content: "+";
+    font: 700 28px;
+    grid-column: 2;
+    grid-row: 1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.proyek details[open] summary::after {
+    content: "–";
+}
+
+.isi {
+    padding: 0 4px 28px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 28px;
+}
+
+.isi p {
+    margin: 0 0 12px;
+    max-width: 58ch;
+}
+
+.stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 14px;
+    padding: 0;
+    list-style: none;
+}
+
+.stack li {
+    border: 1.5px solid var(--ink);
+    padding: 2px 10px;
+    font-size: 14px;
+    border-radius: 99px;
+}
+
+.isi a {
+    color: var(--pen);
+    font-weight: 500;
+}
+
+/* Kotak Result (gaya asli) */
+.hasil {
+    background: var(--card);
+    border: 2px dashed var(--line);
+    padding: 16px 18px;
+    font-size: 15px;
+    align-self: start;
+}
+
+
+/* ==========================================================================
+   11. GALERI PROYEK (card foto + carousel)
+   ========================================================================== */
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.modal [hidden],
+.modal-result[hidden] {
+    display: none !important;
+}
+
+/* ----- Card foto di samping deskripsi (pengganti kolom Result) -----
+   Tampilan sama seperti kotak Result (garis putus-putus), isinya foto. */
+
+.isi .thumb {
+    align-self: start;
+}
+
+
+.thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5/4;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: var(--card);
+    color: #fff;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.thumb-track {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform .8s cubic-bezier(.22, 1, .36, 1);
+}
+
+.thumb:hover,
+.thumb:focus-visible {
+    border-color: var(--ink);
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.thumb-chip {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 13px;
+    padding: 3px 12px;
+    border-radius: 99px;
+}
+
+.thumb:hover .thumb-chip {
+    background: var(--mark);
+    color: var(--markink);
+}
+
+/* Placeholder bila foto belum diisi */
+.kosong {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(45deg, transparent 0 10px, var(--grid) 10px 11px);
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    padding: 12px;
+}
+
+.kosong .ic {
+    width: 34px;
+    height: 34px;
+    stroke-width: 1.6;
+}
+
+.thumb .ic,
+.modal .ic {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ----- Jendela galeri ----- */
+
+.modal {
+    --ease: cubic-bezier(.22, 1, .36, 1);
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s var(--ease), visibility 0s .35s;
+}
+
+.modal.open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .35s var(--ease);
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 16, 32, .72);
+    backdrop-filter: blur(3px);
+}
+
+.modal-box {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    background: var(--card);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--ink);
+    translate: 0 28px;
+    scale: .96;
+    transition: translate .45s var(--ease), scale .45s var(--ease);
+}
+
+.modal.open .modal-box {
+    translate: 0 0;
+    scale: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    background: var(--mark);
+    color: var(--markink);
+}
+
+/* ----- Carousel ----- */
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    background: var(--paper);
+    border-right: 2px solid var(--ink);
+    aspect-ratio: 4/3;
+    touch-action: pan-y;
+}
+
+.slides {
+    display: flex;
+    height: 100%;
+    transition: transform .55s var(--ease);
+}
+
+.slide {
+    flex: 0 0 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.slide-count {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 13px;
+    padding: 3px 12px;
+    border-radius: 99px;
+}
+
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.slide-btn:hover {
+    background: var(--mark);
+    color: var(--markink);
+}
+
+.slide-btn.prev {
+    left: 12px;
+}
+
+.slide-btn.next {
+    right: 12px;
+}
+
+.dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dots button {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    cursor: pointer;
+    transition: background .2s, scale .2s;
+}
+
+.dots button[aria-current="true"] {
+    background: var(--mark);
+    scale: 1.25;
+}
+
+/* ----- Info proyek di sisi kanan jendela ----- */
+
+.modal-info {
+    padding: 56px 28px 28px;
+    display: grid;
+    gap: 14px;
+    align-content: start;
+}
+
+.modal-info h3 {
+    font-size: clamp(26px, 3vw, 34px);
+    margin: 0;
+}
+
+.modal-info p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.modal-info .stack {
+    margin: 0;
+}
+
+.modal-info .modal-result {
+    font-size: 15px;
+    background: var(--paper);
+    border: 2px dashed var(--line);
+    padding: 12px 14px;
+}
+
+.modal-info .btn {
+    justify-self: start;
+    margin-top: 6px;
+}
+
+@media (max-width: 820px) {
+    .modal-box {
+        grid-template-columns: 1fr;
+    }
+
+    .slider {
+        border-right: 0;
+        border-bottom: 2px solid var(--ink);
+    }
+
+    .modal-info {
+        padding: 24px 20px 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .thumb,
+    .modal,
+    .modal-box,
+    .slides {
+        transition: none;
+    }
+}
+
+/* ----- Jendela PDF sertifikat ----- */
+.pdf-box {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    max-width: 960px;
+    height: calc(100dvh - 40px);
+    overflow: hidden;
+}
+
+.pdf-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 68px 14px 20px;
+    border-bottom: 2px solid var(--ink);
+}
+
+.pdf-head h3 {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-size: clamp(16px, 2.4vw, 22px);
+    line-height: 1.25;
+}
+
+.pdf-head .btn {
+    padding: 6px 14px;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+#pdfFrame {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border: 0;
+    background: #fff;
+}
+
+@media (max-width: 640px) {
+    .pdf-box { height: calc(100dvh - 20px); }
+    .pdf-head { flex-wrap: wrap; padding: 12px 60px 12px 14px; }
+}
+
+/* ==========================================================================
+   12. RESUME
+   ========================================================================== */
+
+.cvbar {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.cvbar span {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.cv {
+    background: #fff;
+    color: #1B2A4E;
+    border: 2px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--ink);
+    padding: 44px 48px;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.cv h3 {
+    font-size: 34px;
+}
+
+.cv .kontakcv {
+    color: #56637F;
+    margin: 6px 0 22px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #1B2A4E;
+}
+
+.cv h4 {
+    font: 700 18px "Bricolage Grotesque", sans-serif;
+    margin: 22px 0 8px;
+    display: inline-block;
+    background: linear-gradient(transparent 60%, #F4E04D 60%);
+}
+
+.cv p {
+    margin: 0 0 8px;
+}
+
+.cv .baris {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-weight: 500;
+}
+
+.cv .baris em {
+    font-style: normal;
+    color: #56637F;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.cv ul {
+    margin: 4px 0 12px;
+    padding-left: 20px;
+}
+
+
+/* ==========================================================================
+   13. CONTACT & FORM
+   ========================================================================== */
+
+.kontak {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+}
+
+.kontak p {
+    max-width: 42ch;
+    margin: 0 0 22px;
+}
+
+.kontak ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.kontak li {
+    padding: 12px 0;
+    border-top: 1px dashed var(--line);
+}
+
+.kontak li span {
+    display: block;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+form {
+    display: grid;
+    gap: 16px;
+    background: var(--card);
+    border: 2px solid var(--ink);
+    padding: 24px;
+}
+
+label {
+    display: grid;
+    gap: 6px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+input[type=text],
+textarea {
+    font: inherit;
+    padding: 10px 12px;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 4px;
+    width: 100%;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+form .btn {
+    justify-self: start;
+    background: var(--ink);
+    color: var(--paper);
+}
+
+/* Tombol kembali ke atas */
+.totop {
+  position: fixed;
+  right: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #1B2A4E;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+  z-index: 100;
+
+  /* tersembunyi di awal */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .3s, transform .3s, visibility .3s, background .2s;
+}
+
+/* muncul setelah scroll > 400px (class "tampil" ditambahkan oleh JS) */
+.totop.tampil {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.totop:hover {
+  background: #2F4A8A;
+  transform: translateY(-3px);
+}
+
+.totop:focus-visible {
+  outline: 3px solid #8FB0FF;
+  outline-offset: 3px;
+}
+
+.totop .ic {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* mode gelap */
+:root[data-theme="dark"] .totop {
+  background: #C9D3E6;
+  color: #1B2A4E;
+}
+:root[data-theme="dark"] .totop:hover {
+  background: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .totop { transition: none; }
+}
+
+
+/* ==========================================================================
+   14. FOOTER
+   ========================================================================== */
+
+footer {
+    padding: 56px 0 40px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+footer .wrap {
+    border-top: 2px solid var(--ink);
+    padding-top: 20px;
+}
+
+
+/* ==========================================================================
+   15. RESPONSIVE, PRINT & REDUCED MOTION
+   ========================================================================== */
+
+@media (max-width: 800px) {
+    .hero,
+    .kontak,
+    .isi {
+        grid-template-columns: 1fr;
+    }
+
+    .skill {
+        grid-template-columns: 1fr;
+    }
+
+    .kotak:nth-child(n) {
+        margin-top: 0;
+    }
+
+    .herofoto {
+        max-width: 320px;
+        margin: 0 0 16px;
+    }
+
+    .foto {
+        aspect-ratio: 1;
+    }
+
+    section {
+        padding-top: 72px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .cv {
+        padding: 28px 22px;
+    }
+}
+
+@media print {
+    body {
+        background: #fff;
+    }
+
+    body::before,
+    header,
+    main > section:not(#resume),
+    .cvbar,
+    .totop,
+    footer {
+        display: none !important;
+    }
+
+    main,
+    #resume {
+        padding: 0;
+        margin: 0;
+    }
+
+    .cv {
+        border: 0;
+        box-shadow: none;
+        padding: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .btn {
+        transition: none;
+    }
+}
+
+
+/* ==========================================================================
+   16. TRANSISI
+   Transisi halaman + transisi tiap section (masuk & keluar).
+   .rv  = elemen yang dianimasikan (ditambahkan oleh script)
+   .in  = elemen sedang terlihat di layar (ditambah/dihapus saat scroll)
+   ========================================================================== */
+
+:root {
+    --t-dur: .7s;
+    --t-ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* ----- 16.1 Transisi halaman ----- */
+
+/* Perpindahan antar halaman (jika nanti ada lebih dari satu file .html) */
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root) {
+    animation: t-page-out .35s ease both;
+}
+
+::view-transition-new(root) {
+    animation: t-page-in .45s ease both;
+}
+
+/* Saat halaman pertama kali dibuka */
+body {
+    animation: t-body-in .6s ease backwards;
+}
+
+@keyframes t-body-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+header {
+    animation: t-header-in .6s var(--t-ease) both;
+}
+
+@keyframes t-page-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes t-page-out {
+    from { opacity: 1; }
+    to   { opacity: 0; transform: translateY(-12px); }
+}
+
+@keyframes t-header-in {
+    from { transform: translateY(-100%); }
+    to   { transform: none; }
+}
+
+/* ----- 16.2 Dasar transisi section ----- */
+
+.js .rv {
+    opacity: 0;
+    transition: opacity var(--t-dur) ease, transform var(--t-dur) var(--t-ease);
+    transition-delay: var(--d, 0s);
+    will-change: opacity, transform;
+}
+
+.js .rv[data-a="up"]    { transform: translateY(40px); }
+.js .rv[data-a="down"]  { transform: translateY(-40px); }
+.js .rv[data-a="left"]  { transform: translateX(-56px); }
+.js .rv[data-a="right"] { transform: translateX(56px); }
+.js .rv[data-a="zoom"]  { transform: scale(.92); }
+.js .rv[data-a="flip"]  { transform: perspective(700px) rotateX(18deg) translateY(30px); transform-origin: top; }
+
+.js .rv.in {
+    opacity: 1;
+    transform: none;
+}
+
+/* ----- 16.3 Variasi per section ----- */
+
+/* HOME: judul naik pelan, foto masuk dari kanan, catatan "pop" */
+#home h1 span {
+    display: block;
+}
+
+#home .herofoto {
+    --t-dur: .9s;
+}
+
+#home .catatan {
+    opacity: 0;
+    transform: rotate(-12deg) scale(.7);
+    transition: opacity .5s ease .5s, transform .6s cubic-bezier(.3, 1.5, .5, 1) .5s;
+}
+
+#home .herofoto.in .catatan {
+    opacity: 1;
+    transform: rotate(-3deg);
+}
+
+/* ABOUT: kartu profil dari kiri, teks dari kanan, kolom info bergantian */
+#about .info > div {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .5s ease, transform .5s var(--t-ease);
+}
+
+#about .teks.in .info > div {
+    opacity: 1;
+    transform: none;
+}
+
+#about .teks.in .info > div:nth-child(2) { transition-delay: .12s; }
+#about .teks.in .info > div:nth-child(3) { transition-delay: .24s; }
+#about .teks.in .info > div:nth-child(4) { transition-delay: .36s; }
+
+/* EDUCATION: garis timeline "tumbuh", titik muncul menyusul */
+#education .garis article::before {
+    transform: scale(0);
+    transition: transform .4s cubic-bezier(.3, 1.6, .5, 1) .25s;
+}
+
+#education .garis article.in::before {
+    transform: scale(1);
+}
+
+/* PORTFOLIO: isi proyek membuka dengan fade */
+#portfolio details[open] .isi {
+    animation: t-open .45s var(--t-ease) both;
+}
+
+@keyframes t-open {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: none; }
+}
+
+#portfolio .stack li {
+    transition: transform .2s ease, background .2s ease;
+}
+
+#portfolio .stack li:hover {
+    transform: translateY(-2px);
+    background: var(--mark);
+    color: var(--markink);
+}
+
+/* CONTACT: form masuk dari kanan, daftar kontak dari kiri */
+#contact .kontak li {
+    opacity: 0;
+    transform: translateX(-16px);
+    transition: opacity .5s ease, transform .5s var(--t-ease);
+}
+
+#contact .kontak > div.in li {
+    opacity: 1;
+    transform: none;
+}
+
+#contact .kontak > div.in li:nth-child(2) { transition-delay: .12s; }
+#contact .kontak > div.in li:nth-child(3) { transition-delay: .24s; }
+
+/* ----- 16.4 Nav: tandai section yang sedang dilihat ----- */
+
+nav a {
+    transition: background .2s ease, color .2s ease;
+}
+
+nav a.aktif {
+    background: var(--mark);
+    color: var(--markink);
+}
+
+/* ----- 16.5 Tombol back to top ----- */
+
+/* ----- 16.5 Tanpa animasi saat scroll ke atas ----- */
+/* class .skip ditambahkan oleh JS saat elemen muncul/hilang karena scroll ke atas */
+
+.js .rv.skip,
+#home .herofoto.skip .catatan,
+#about .teks.skip .info > div,
+#contact .kontak > div.skip li {
+    transition: none !important;
+    transition-delay: 0s !important;
+}
+
+/* ----- 16.6 Reduced motion ----- */
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    header,
+    #portfolio details[open] .isi {
+        animation: none;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+    }
+
+    .js .rv,
+    #home .catatan,
+    #about .info > div,
+    #contact .kontak li,
+    #education .garis article::before {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    #home .catatan {
+        transform: rotate(-3deg);
+    }
+}
+
+
+/* ==========================================================================
+   17. LAIN-LAIN
+   ========================================================================== */
+
+.section-about {
+    padding-top: 10rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE – hanya aktif di layar kecil, desktop tidak berubah
+   ========================================================================== */
+
+/* ---------- Tablet / laptop kecil (≤ 1024px) ---------- */
+@media (max-width: 1024px) {
+    body {
+        overflow-x: clip;
+        overflow-wrap: break-word;
+    }
+
+    img,
+    svg,
+    video,
+    canvas {
+        max-width: 100%;
+    }
+
+    .hero > *,
+    .about-grid > *,
+    .isi > *,
+    .kontak > *,
+    .skills-grid > *,
+    .modal-box > * {
+        min-width: 0;
+    }
+
+    .catatan {
+        left: -12px;
+    }
+}
+
+/* ---------- Tablet (≤ 820px) ---------- */
+@media (max-width: 820px) {
+    html {
+        scroll-padding-top: calc(100px + env(safe-area-inset-top, 0px));
+    }
+
+    /* Header 2 baris: logo + tombol tema di atas, menu di bawah */
+    header .wrap {
+        height: auto;
+        flex-wrap: wrap;
+        row-gap: 4px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .logo {
+        margin-right: auto;
+    }
+
+    nav {
+        order: 3;
+        flex: 1 0 100%;
+        min-width: 0;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* About jadi 1 kolom */
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profil {
+        width: 100%;
+        max-width: 440px;
+        margin-inline: auto;
+    }
+
+    .thumb {
+        max-width: 560px;
+    }
+}
+
+/* ---------- HP (≤ 640px) ---------- */
+@media (max-width: 640px) {
+    /* Home */
+    #home .peran {
+        font-size: 16px;
+        max-width: none;
+    }
+
+    .herofoto {
+        margin-bottom: 30px;
+    }
+
+    .catatan {
+        left: 12px;
+        bottom: -22px;
+        width: min(210px, 78%);
+    }
+
+    .tombol .btn {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    /* About */
+    .profil {
+        padding: 32px 18px 20px;
+    }
+
+    .teks p {
+        text-align: left;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .unduh {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Portfolio */
+    .thumb {
+        aspect-ratio: 4/3;
+        border-radius: 20px;
+    }
+
+    .thumb-body {
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+    }
+
+    /* Galeri */
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-box {
+        max-height: calc(100dvh - 20px);
+    }
+
+    .slide-btn {
+        width: 38px;
+        height: 38px;
+        margin-top: -19px;
+    }
+
+    .slide-btn.prev {
+        left: 8px;
+    }
+
+    .slide-btn.next {
+        right: 8px;
+    }
+
+    /* Resume */
+    .cv h3 {
+        font-size: 28px;
+    }
+
+    .cv .baris {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .cv .baris em {
+        white-space: normal;
+    }
+
+    /* Contact */
+    form {
+        padding: 18px;
+    }
+
+    form .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Animasi masuk dipendekkan supaya tidak melebar ke samping */
+    .js .rv:not(.in)[data-a="left"] {
+        transform: translateX(-28px);
+    }
+
+    .js .rv:not(.in)[data-a="right"] {
+        transform: translateX(28px);
+    }
+
+    .totop {
+        right: 14px;
+    }
+}
+
+/* ---------- HP kecil (≤ 480px) ---------- */
+@media (max-width: 480px) {
+    .wrap {
+        padding-left: max(18px, env(safe-area-inset-left));
+        padding-right: max(18px, env(safe-area-inset-right));
+    }
+}
+
+/* ---------- HP sangat kecil (≤ 360px) ---------- */
+@media (max-width: 360px) {
+    h1 {
+        font-size: 46px;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+}
+
+/* ---------- Layar sentuh: efek hover tidak menempel ---------- */
+@media (hover: none) {
+    .btn:hover {
+        transform: none;
+        box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .sosmed a:hover,
+    .thumb-btn:hover {
+        transform: none;
+    }
+}
+
+/* ---------- HP dimiringkan: header tidak menempel ---------- */
+@media (max-height: 500px) and (orientation: landscape) {
+    header {
+        position: static;
+    }
+}

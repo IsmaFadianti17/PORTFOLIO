@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Isma Fadianti – PORTFOLIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/transition.css">
+<script>document.documentElement.classList.add('js')</script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="wrap">
+    <a class="logo" href="#home">Ismafadianti</a>
+        <nav aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About me</a>
+            <a href="#education">Education</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button id="tema" type="button" aria-label="Switch between light and dark theme">◐</button>
+    </div>
+</header>
+
+<main class="wrap">
+ <section id="home"><div class="hero">
+  <div>
+   <h1><span>Isma</span><span>Fadianti.</span></h1>
+   <p class="peran">A Computer Science graduate who builds web apps,
+    from the database to the screen.</p>
+    <div class="tombol">
+        <a class="btn utama" href="#portfolio">See my projects</a>
+        <a class="btn" href="#about">About me</a>
+    </div>
+  </div>
+  <div class="herofoto">
+   <figure class="foto" data-key="foto1" tabindex="0" role="button" aria-label="Add your photo"></figure>
+   <aside class="catatan"><b>Available now</b>Looking for a junior web developer or data analyst role.</aside>
+  </div>
+ </div>
+</section>
+
+ <!-- ABOUT -->
+  <section id="about">
+    <div class="about">
+      <div class="about-grid">
+        <aside class="profil">
+          <div class="avatar">
+            <figure class="foto" data-key="foto2" tabindex="0" role="button" aria-label="Add your photo"></figure>
+            <span class="lencana" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg></span>
+          </div>
+          <h3>Ismafadianti</h3>
+          <p class="peran">Web Developer</p>
+          <ul class="kontak-list">
+            <li><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                <a href="mailto:fadiantisma@gmail.com">fadiantisma@gmail.com</a>
+            </li>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+                <a href="https://wa.me/6282284605321" target="_blank" rel="noopener noreferrer" title="Chat WhatsApp">+62 822 8460 5321</a>
+            </li>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Bima, Indonesia</li>
+          </ul>
+
+          <!-- Sosial media: GANTI "username" dengan akun GitHub kamu -->
+          <div class="sosmed">
+            <a href="https://github.com/username" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+              <svg class="ic brand" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/isma-fadianti-a769863a7/ismafadianti" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+              <svg class="ic brand" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/fadiantisma" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+              <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </aside>
+
+        <div class="teks">
+          <span class="label-pill">Get to Know About Me</span>
+          <h2>Passionate about building and designing software</h2>
+          <p>I’m a Computer Science graduate who enjoys turning everyday problems into working software.
+             Driven by curiosity, I like to understand how a system works from the database up to the
+             screen, and then make it simpler for the people who use it. I am also interested in the field of UI/UX and
+             am committed to delving deeper into it.</p>
+          <p>My goal is to build useful, reliable products adn interesting. I focus on web development,
+             from small tools for local shops to a recommendation system. I’m looking for a
+             team where I can keep learning while shipping things that people actually use.</p>
+          <dl class="info">
+              <div><dt>Education</dt><dd>Informatics, Universitas Mercu Buana Yogyakarta</dd></div>
+              <div><dt>Languages</dt><dd>Indonesian, English</dd></div>
+          </dl>
+          <a class="unduh" href="assets/MIcrosoft_Azure_AI.pdf"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>Download Resume</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="skills-head">
+        <p class="skills-label">Skills</p>
+        <h2 class="skills-title">Technical &amp; Soft Skills</h2>
+    </div>
+    <div class="skills-card">
+        <div class="skills-grid">
+            <div class="skill-col">
+                <h3>Programming <span>Languages</span></h3>
+                <ul><li>Java</li><li>PHP &amp; C</li><li>SQL &amp; CSS</li></ul>
+            </div>
+            <div class="skill-col">
+                <h3>Frameworks <span>&amp; Libraries</span></h3>
+                <ul><li>Laravel</li><li>Slim &amp; Twig</li><li>Medoo</li></ul>
+            </div>
+            <div class="skill-col">
+                <h3>Tools <span>&amp; Data</span></h3>
+                <ul><li>MySQL</li><li>Git &amp; GitHub</li></ul>
+            </div>
+            <div class="skill-col">
+                <h3>Soft <span>Skills</span></h3>
+                <ul><li>Problem Solving</li><li>Collaboration</li><li>Teamwork</li></ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="edu-cert-section">
+    <h2 class="edu-cert-title"><span class="edu-cert-icon">🎓</span> Education</h2>
+
+    <div class="edu-cert-timeline">
+        <article class="edu-cert-item">
+            <h3>Bachelor of Computer Science</h3>
+            <p class="edu-cert-date">September 2022 - August 2026</p>
+            <p class="edu-cert-institution">
+                <span class="edu-cert-building"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022M6 8.694 1 10.36V15h5zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5z"/><path d="M2 11h1v1H2zm2 0h1v1H4zm-2 2h1v1H2zm2 0h1v1H4zm4-4h1v1H8zm2 0h1v1h-1zm-2 2h1v1H8zm2 0h1v1h-1zm2-2h1v1h-1zm0 2h1v1h-1zM8 7h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zM8 5h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zm0-2h1v1h-1z"/></svg></span>
+                <a href="https://mercubuana-yogya.ac.id/">Universitas Mercu Buana Yogyakarta</a>
+            </p>
+            <ul class="edu-cert-details">
+                <li>1st Place Winner, Programming Competition at the 17th FTI Mercu Buana Yogyakarta Dies Natalis (December 2025)</li>
+                <li>Best Graduate of the Study Program (April 2026)</li>
+                <li>Relevant coursework: Computer Programming, Network, Database, Website Development</li>
+                <li>GPA: 3.77</li>
+            </ul>
+        </article>
+
+        <article class="edu-cert-item">
+            <h3>Senior High School</h3>
+            <p class="edu-cert-date">July 2019 - May 2022</p>
+            <p class="edu-cert-institution">
+                <span class="edu-cert-building"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022M6 8.694 1 10.36V15h5zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5z"/><path d="M2 11h1v1H2zm2 0h1v1H4zm-2 2h1v1H2zm2 0h1v1H4zm4-4h1v1H8zm2 0h1v1h-1zm-2 2h1v1H8zm2 0h1v1h-1zm2-2h1v1h-1zm0 2h1v1h-1zM8 7h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zM8 5h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zm0-2h1v1h-1z"/></svg></span>
+                <a href="https://man2kobi.sch.id/">MAN 2 Kota Bima</a>
+            </p>
+        </article>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <h2 class="edu-cert-title edu-cert-cert-title"><span class="edu-cert-icon">🏅</span> Certifications</h2>
+
+    <div class="edu-cert-timeline">
+        <article class="edu-cert-item">
+            <h3>Microsoft Certified: Azure AI Fundamentals</h3>
+            <p class="edu-cert-date">2026</p>
+            <p class="edu-cert-institution">
+                <span class="edu-cert-building"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M7.462 0H0v7.19h7.462zM16 0H8.538v7.19H16zM7.462 8.211H0V16h7.462zm8.538 0H8.538V16H16z"/></svg></span>
+                <a href="assets/MIcrosoft_Azure_AI.pdf">Microsoft</a>
+            </p>
+            <ul class="edu-cert-details">
+                <li>Subject: Fundamental Machine Learning Concepts, Anomaly Detection, and Computer Vision</li>
+                <li>Score: 916</li>
+            </ul>
+        </article>
+
+        <article class="edu-cert-item">
+            <h3>Gamelab Indonesia By Educa Studio | Web Development</h3>
+            <p class="edu-cert-date">2025</p>
+            <p class="edu-cert-institution">
+                <span class="edu-cert-building">▤</span>
+                <a href="assets/Sertifikat_Akhir.pdf">Gamelab Indonesia</a>
+            </p>
+            <ul class="edu-cert-details">
+                <li>Subject: JavaScript, Laravel, Slim, Medoo, Twig, PHP</li>
+                <li>Final Score Hard Skill: 4.2/5</li>
+                <li>Final Score Soft Skill: B</li>
+            </ul>
+        </article>
+    </div>
+</section>
+
+<!-- PORTFOLIO
+     Foto proyek: taruh gambar di assets/, lalu isi data-images pada tombol .thumb
+     (dipisah koma). Link GitHub: ganti href="#" pada <a class="proyek-link"> -->
+<section id="portfolio">
+    <h2 class="judul">Portfolio</h2>
+    <div class="proyek">
+        <details open>
+            <summary>
+                <div><h3>Simple Portfolio</h3></div>
+                <span class="jenis">Web app, 2026</span>
+            </summary>
+            <div class="isi">
+                <div>
+                    <p>My portfolio, which covers everything about me from a professional perspective</p>
+                    <ul class="stack"><li>HTML</li><li>CSS</li><li>Java</li></ul>
+                    <a class="proyek-link" href="#">View Web</a>
+                </div>
+                <button class="thumb" type="button" data-images="assets/Porto_Isma.png, assets/Porto1.png"
+                    data-result="Used daily by 3 shops. End-of-day bookkeeping dropped from about an hour to 10 minutes."
+                    aria-label="View photos of Warung POS"></button>
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                <div><h3>Co-op Stock</h3></div>
+                <span class="jenis">Information system, 2023</span>
+            </summary>
+            <div class="isi">
+                <div>
+                    <p>A stock monitor for the student cooperative, with low-stock alerts and downloadable monthly reports.</p>
+                    <ul class="stack">
+                        <li>Laravel</li>
+                        <li>MySQL</li>
+                        <li>PHP</li>
+                    </ul>
+                    <a class="proyek-link" href="#">View demo</a>
+                </div>
+                <button class="thumb" type="button" data-images="assets/Projek1_4.png, assets/Projek1.png, assets/Projek1_2.png, assets/Projek1_3.png"
+                    data-result="A monthly report that took two days by hand now takes one click."
+                    aria-label="View photos of Co-op Stock"></button>
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                <div><h3>Reads For You</h3></div>
+                <span class="jenis">Thesis, 2024</span>
+            </summary>
+            <div class="isi">
+                <div>
+                    <p>A book recommender based on borrowing history. I compared two approaches and explained how they work in terms a librarian can follow.</p>
+                    <ul class="stack"><li>Python</li><li>Pandas</li><li>Scikit-learn</li><li>Flask</li></ul>
+                    <a class="proyek-link" href="#">Read the thesis summary</a>
+                </div>
+                <button class="thumb" type="button" data-images=""
+                    data-result="The best approach reached 68% top-5 accuracy on test data."
+                    aria-label="View photos of Reads For You"></button>
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                <div><h3>Shared Class Schedule</h3></div>
+                <span class="jenis">Contest project, 2022</span>
+            </summary>
+            <div class="isi">
+                <div>
+                    <p>An app that matches free time slots between students so group work doesn’t end in a group-chat argument.</p>
+                    <ul class="stack"><li>Firebase</li><li>React</li><li>Figma</li></ul>
+                    <a class="proyek-link" href="#">View code on GitHub</a>
+                </div>
+                <button class="thumb" type="button" data-images=""
+                    data-result="Reached the final of a regional app contest."
+                    aria-label="View photos of Shared Class Schedule"></button>
+            </div>
+        </details>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="judul">Contact</h2>
+    <div class="kontak">
+        <div><p>Got a job opening, a small project, or just want to talk tech? Send a message. I usually reply within a day.</p>
+            <ul>
+                <li><span>Email</span><a href="mailto:fadiantisma@gmail.com">fadiantisma@gmail.com</a></li>
+                <li><span>GitHub</span><a href="https://github.com/username" target="_blank" rel="noopener noreferrer">github.com/username</a></li>
+                <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/isma-fadianti-a769863a7/" target="_blank" rel="noopener noreferrer">linkedin.com/in/isma-fadianti</a></li>
+            </ul>
+        </div>
+        <form id="form" action="#">
+            <label>Name <input type="text" name="nama" required autocomplete="name"></label>
+            <label>Message <textarea name="pesan" required></textarea></label>
+            <button class="btn" type="submit">Send by email</button>
+        </form>
+    </div>
+</section>
+</main>
+
+<footer>
+    <div class="wrap">
+        Built with plain HTML and CSS by Ismafadianti, 2026.
+    </div>
+</footer>
+
+<button class="totop" id="totop" type="button" aria-label="Back to top">
+    <svg class="ic" viewBox="0 0 24 24"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg>
+</button>
+<input type="file" id="pilih" accept="image/*" hidden>
+
+<!-- Jendela galeri proyek -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Project gallery">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box">
+    <button class="modal-close" type="button" data-close aria-label="Close">
+      <svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="slider">
+      <span class="slide-count" id="sCount"></span>
+      <div class="slides" id="sSlides"></div>
+      <button class="slide-btn prev" id="sPrev" type="button" aria-label="Previous photo">
+        <svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg>
+      </button>
+      <button class="slide-btn next" id="sNext" type="button" aria-label="Next photo">
+        <svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg>
+      </button>
+      <div class="dots" id="sDots"></div>
+    </div>
+    <div class="modal-info">
+      <h3 id="mTitle"></h3>
+      <p id="mDesc"></p>
+      <ul class="stack" id="mStack"></ul>
+      <p class="modal-result" id="mResult" hidden></p>
+      <a class="btn" id="mLink" href="#" target="_blank" rel="noopener noreferrer">View project</a>
+    </div>
+  </div>
+</div>
+
+<!-- Jendela sertifikat PDF -->
+<div class="modal" id="pdfModal" role="dialog" aria-modal="true" aria-label="Certificate">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box pdf-box">
+    <button class="modal-close" type="button" data-close aria-label="Close">
+      <svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="pdf-head">
+      <h3 id="pdfTitle"></h3>
+      <a class="btn" id="pdfOpen" href="#" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+    </div>
+    <iframe id="pdfFrame" title="Certificate" src="about:blank"></iframe>
+  </div>
+</div>
+
+<script>
+/* ===== Tema, form kontak, slot foto ===== */
+(function(){
+ var root=document.documentElement;
+ document.getElementById('tema').addEventListener('click',function(){
+  var d=root.dataset.theme==='dark'||(!root.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);
+  root.dataset.theme=d?'light':'dark';
+ });
+ document.getElementById('form').addEventListener('submit',function(e){
+  e.preventDefault();var f=e.target;
+  location.href='mailto:fadiantisma@gmail.com?subject='+encodeURIComponent('Message from '+f.nama.value)+'&body='+encodeURIComponent(f.pesan.value);
+ });
+ var SIL='<svg viewBox="0 0 80 100" role="img" aria-label="Photo placeholder"><rect width="80" height="100" fill="#C9D3E6"/><circle cx="40" cy="38" r="15" fill="#1B2A4E"/><path d="M10 100c0-24 14-38 30-38s30 14 30 38z" fill="#1B2A4E"/></svg>';
+ var pilih=document.getElementById('pilih'),aktif=null;
+ function pasang(el,src){
+  el.innerHTML=src?'<img alt="Photo of Isma Fadianti" src="'+src+'">':SIL+'<figcaption>Click to add your photo</figcaption>';
+  el.classList.toggle('ada',!!src);
+ }
+ document.querySelectorAll('.foto').forEach(function(el){
+  var s=null;try{s=localStorage.getItem(el.dataset.key)}catch(x){}
+  pasang(el,s);
+  function buka(){aktif=el;pilih.click()}
+  el.addEventListener('click',buka);
+  el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();buka()}});
+ });
+ pilih.addEventListener('change',function(){
+  var file=pilih.files[0];if(!file||!aktif)return;
+  var r=new FileReader(),el=aktif;
+  r.onload=function(){
+   var im=new Image();
+   im.onload=function(){
+    var c=document.createElement('canvas'),k=Math.min(1,900/im.width);
+    c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+    var d=c.toDataURL('image/jpeg',.85);pasang(el,d);
+    try{localStorage.setItem(el.dataset.key,d)}catch(x){}
+   };im.src=r.result;
+  };r.readAsDataURL(file);pilih.value='';
+ });
+})();
+
+/* ===== Tombol kembali ke atas: muncul begitu About mulai terlihat ===== */
+(function(){
+ var b=document.getElementById('totop');
+ var about=document.getElementById('about');
+ var header=document.querySelector('header');
+ function cek(){
+  var batas=header.offsetHeight+120;
+  b.classList.toggle('tampil',about.getBoundingClientRect().top<=batas);
+ }
+ addEventListener('scroll',cek,{passive:true});
+ addEventListener('resize',cek);
+ cek();
+ b.addEventListener('click',function(){
+  scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+ });
+})();
+
+/* ===== Sertifikat PDF: tampil sebagai pop-up, bukan pindah halaman ===== */
+(function(){
+ var modal=document.getElementById('pdfModal');
+ var frame=document.getElementById('pdfFrame');
+ var judul=document.getElementById('pdfTitle');
+ var buka=document.getElementById('pdfOpen');
+ var lastLink=null;
+
+ /* HP/tablet sentuh sering tidak bisa menampilkan PDF di iframe,
+    jadi di sana link dibiarkan terbuka di tab baru seperti biasa */
+ var sentuh=matchMedia('(pointer: coarse)').matches;
+
+ document.querySelectorAll('#education a[href$=".pdf"]').forEach(function(a){
+  if(sentuh){a.target='_blank';a.rel='noopener noreferrer';return}
+  a.addEventListener('click',function(e){
+   e.preventDefault();
+   lastLink=a;
+   var item=a.closest('.edu-cert-item');
+   var src=a.getAttribute('href');
+   judul.textContent=item?item.querySelector('h3').textContent.trim():'Certificate';
+   buka.href=src;
+   frame.src=src+'#view=FitH';
+   modal.classList.add('open');
+   document.body.classList.add('no-scroll');
+   modal.querySelector('.modal-close').focus();
+  });
+ });
+
+ function tutup(){
+  modal.classList.remove('open');
+  document.body.classList.remove('no-scroll');
+  frame.src='about:blank';
+  if(lastLink)lastLink.focus();
+ }
+ modal.addEventListener('click',function(e){if(e.target.closest('[data-close]'))tutup()});
+ addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&modal.classList.contains('open'))tutup();
+ });
+})();
+
+/* ===== Galeri proyek: kartu foto + jendela carousel ===== */
+(function(){
+ var modal=document.getElementById('modal');
+ var sSlides=document.getElementById('sSlides'),sCount=document.getElementById('sCount'),sDots=document.getElementById('sDots');
+ var mTitle=document.getElementById('mTitle'),mDesc=document.getElementById('mDesc');
+ var mStack=document.getElementById('mStack'),mResult=document.getElementById('mResult'),mLink=document.getElementById('mLink');
+ var sPrev=document.getElementById('sPrev'),sNext=document.getElementById('sNext');
+ var imgs=[],idx=0,lastBtn=null;
+
+ var KOSONG='<div class="kosong"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m21 16-5-5-9 8"/></svg>Photo coming soon</div>';
+
+ function cekGambar(src){
+  return new Promise(function(ok){
+   var im=new Image();
+   im.onload=function(){ok(src)};
+   im.onerror=function(){ok(null)};
+   im.src=src;
+  });
+ }
+
+ document.querySelectorAll('.thumb').forEach(function(btn){
+  var daftar=(btn.dataset.images||'').split(',').map(function(s){return s.trim()}).filter(Boolean);
+  btn._imgs=[];
+  btn.innerHTML=KOSONG;
+  if(daftar.length){
+   Promise.all(daftar.map(cekGambar)).then(function(hasil){
+    btn._imgs=hasil.filter(Boolean);
+    if(!btn._imgs.length)return;
+    btn.innerHTML='<img src="'+btn._imgs[0]+'" alt="">'+
+     (btn._imgs.length>1?'<span class="thumb-chip">'+btn._imgs.length+' photos</span>':'');
+   });
+  }
+  btn.addEventListener('click',function(){if(btn._imgs.length)buka(btn)});
+ });
+
+ function buka(btn){
+  lastBtn=btn;imgs=btn._imgs;
+  var det=btn.closest('details');
+  mTitle.textContent=det.querySelector('summary h3').textContent;
+  mDesc.textContent=det.querySelector('.isi p').textContent;
+  mStack.innerHTML=det.querySelector('.stack').innerHTML;
+  var link=det.querySelector('.proyek-link'),href=link.getAttribute('href');
+  mLink.textContent=link.textContent;
+  mLink.href=href;
+  mLink.hidden=(href==='#');
+  mResult.textContent=btn.dataset.result||'';
+  mResult.hidden=!btn.dataset.result;
+
+  sSlides.innerHTML=imgs.map(function(s){return '<div class="slide"><img src="'+s+'" alt=""></div>'}).join('');
+  sDots.innerHTML=imgs.map(function(_,i){return '<button type="button" aria-label="Photo '+(i+1)+'"></button>'}).join('');
+  var satu=imgs.length<2;
+  sPrev.hidden=satu;sNext.hidden=satu;sDots.hidden=satu;
+  geser(0);
+
+  modal.classList.add('open');
+  document.body.classList.add('no-scroll');
+  modal.querySelector('.modal-close').focus();
+ }
+
+ function geser(i){
+  idx=(i+imgs.length)%imgs.length;
+  sSlides.style.transform='translateX(-'+(idx*100)+'%)';
+  sCount.textContent=(idx+1)+' / '+imgs.length;
+  sDots.querySelectorAll('button').forEach(function(d,n){d.setAttribute('aria-current',n===idx?'true':'false')});
+ }
+
+ function tutup(){
+  modal.classList.remove('open');
+  document.body.classList.remove('no-scroll');
+  if(lastBtn)lastBtn.focus();
+ }
+
+ sPrev.addEventListener('click',function(){geser(idx-1)});
+ sNext.addEventListener('click',function(){geser(idx+1)});
+ sDots.addEventListener('click',function(e){
+  var n=[].indexOf.call(sDots.children,e.target);
+  if(n>-1)geser(n);
+ });
+ modal.addEventListener('click',function(e){if(e.target.closest('[data-close]'))tutup()});
+ addEventListener('keydown',function(e){
+  if(!modal.classList.contains('open'))return;
+  if(e.key==='Escape')tutup();
+  if(e.key==='ArrowLeft')geser(idx-1);
+  if(e.key==='ArrowRight')geser(idx+1);
+ });
+
+ var x0=null,slider=modal.querySelector('.slider');
+ slider.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+ slider.addEventListener('touchend',function(e){
+  if(x0===null)return;
+  var dx=e.changedTouches[0].clientX-x0;
+  if(Math.abs(dx)>40)geser(idx+(dx<0?1:-1));
+  x0=null;
+ });
+})();
+
+/* ===== Transisi section: animasi hanya saat scroll ke bawah ===== */
+(function(){
+ var doc=document.documentElement;
+ if(!('IntersectionObserver' in window)){doc.classList.remove('js');return}
+
+ var lastY=scrollY,dir='down';
+ addEventListener('scroll',function(){
+  var y=scrollY;
+  if(y>lastY)dir='down';
+  else if(y<lastY)dir='up';
+  lastY=y;
+ },{passive:true});
+
+ function tampil(el){
+  if(dir==='down'){
+   el.classList.remove('skip');
+   void el.offsetWidth;
+   el.classList.add('in');
+  }else{
+   el.classList.add('skip','in');
+  }
+ }
+ function sembunyi(el){
+  el.classList.add('skip');
+  el.classList.remove('in');
+ }
+
+ /* [selector, arah, jeda antar elemen (detik)] */
+ var items=[
+  ['#home h1','up',0],
+  ['#home .peran','up',0],
+  ['#home .tombol','up',0],
+  ['#home .herofoto','right',0],
+  ['.judul','left',0],
+  ['#about .profil','left',0],
+  ['#about .teks','right',0],
+  ['#skills .skills-head','up',0],
+  ['#skills .skill-col','up',0.12],
+  ['#education .edu-cert-title','left',0],
+  ['#education .edu-cert-item','left',0.1],
+  ['#portfolio .proyek details','up',0.08],
+  ['#contact .kontak > div','left',0],
+  ['#contact .kontak form','right',0]
+ ];
+
+ var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+   var el=e.target;
+   if(e.isIntersecting)tampil(el);
+   else if(e.boundingClientRect.top>0)sembunyi(el);
+  });
+ },{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+
+ items.forEach(function(it){
+  document.querySelectorAll(it[0]).forEach(function(el,i){
+   el.classList.add('rv');
+   el.dataset.a=it[1];
+   if(it[2])el.style.setProperty('--d',(i*it[2])+'s');
+   io.observe(el);
+  });
+ });
+
+ /* menu nav menyorot section yang sedang dilihat */
+ var links={};
+ document.querySelectorAll('nav a').forEach(function(a){links[a.getAttribute('href')]=a});
+ var spy=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+   if(!e.isIntersecting)return;
+   Object.keys(links).forEach(function(k){links[k].classList.remove('aktif')});
+   var a=links['#'+e.target.id];if(a)a.classList.add('aktif');
+  });
+ },{rootMargin:'-45% 0px -50% 0px'});
+ document.querySelectorAll('main section[id]').forEach(function(s){spy.observe(s)});
+})();
+</script>
+</body>
+</html>
