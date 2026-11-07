@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -9,6 +9,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="assets/transition.css">
 <script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -43,6 +47,8 @@
   </div>
  </div>
 </section>
+<br>
+<br>
 
  <!-- ABOUT -->
   <section id="about">
@@ -67,7 +73,7 @@
 
           <!-- Sosial media: GANTI "username" dengan akun GitHub kamu -->
           <div class="sosmed">
-            <a href="https://github.com/username" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+            <a href="https://github.com/IsmaFadianti17" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
               <svg class="ic brand" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             </a>
             <a href="https://www.linkedin.com/in/isma-fadianti-a769863a7/ismafadianti" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
@@ -140,10 +146,9 @@
                 <a href="https://mercubuana-yogya.ac.id/">Universitas Mercu Buana Yogyakarta</a>
             </p>
             <ul class="edu-cert-details">
-                <li>1st Place Winner, Programming Competition at the 17th FTI Mercu Buana Yogyakarta Dies Natalis (December 2025)</li>
-                <li>Best Graduate of the Study Program (April 2026)</li>
-                <li>Relevant coursework: Computer Programming, Network, Database, Website Development</li>
-                <li>GPA: 3.77</li>
+                <li>Has published a research journal article</li>
+                <li>Relevant coursework: Web Programming, Computer Programming, Network, Database, Website Development & AI</li>
+                <li>GPA: 3.66</li>
             </ul>
         </article>
 
@@ -175,7 +180,7 @@
         </article>
 
         <article class="edu-cert-item">
-            <h3>Gamelab Indonesia By Educa Studio | Web Development</h3>
+            <h3>Gamelab Indonesia By Educa Studio | Full Stack Web Development</h3>
             <p class="edu-cert-date">2025</p>
             <p class="edu-cert-institution">
                 <span class="edu-cert-building">▤</span>
@@ -192,98 +197,81 @@
 
 <!-- PORTFOLIO
      Foto proyek: taruh gambar di assets/, lalu isi data-images pada tombol .thumb
-     (dipisah koma). Link GitHub: ganti href="#" pada <a class="proyek-link"> -->
+    (dipisah koma). Link GitHub: ganti href="#" pada <a class="proyek-link"> -->
 <section id="portfolio">
     <h2 class="judul">Portfolio</h2>
     <div class="proyek">
-        <details open>
-            <summary>
-                <div><h3>Simple Portfolio</h3></div>
-                <span class="jenis">Web app, 2026</span>
-            </summary>
-            <div class="isi">
-                <div>
-                    <p>My portfolio, which covers everything about me from a professional perspective</p>
-                    <ul class="stack"><li>HTML</li><li>CSS</li><li>Java</li></ul>
-                    <a class="proyek-link" href="#">View Web</a>
-                </div>
-                <button class="thumb" type="button" data-images="assets/Porto_Isma.png, assets/Porto1.png"
-                    data-result="Used daily by 3 shops. End-of-day bookkeeping dropped from about an hour to 10 minutes."
-                    aria-label="View photos of Warung POS"></button>
+        <article class="kartu">
+            <button class="thumb" type="button" data-images="assets/Porto_Isma.png, assets/Porto1.png"
+                data-result="Used daily by 3 shops. End-of-day bookkeeping dropped from about an hour to 10 minutes."
+                aria-label="View photos of Simple Portfolio"></button>
+            <div class="kartu-body">
+                <span class="jenis">My Project, 2026</span>
+                <h3>Simple Portfolio</h3>
+                <p>My portfolio, which covers everything about me from a professional perspective</p>
+                <ul class="stack"><li>HTML</li><li>CSS</li><li>Java</li></ul>
             </div>
-        </details>
+        </article>
 
-        <details>
-            <summary>
-                <div><h3>Co-op Stock</h3></div>
-                <span class="jenis">Information system, 2023</span>
-            </summary>
-            <div class="isi">
-                <div>
-                    <p>A stock monitor for the student cooperative, with low-stock alerts and downloadable monthly reports.</p>
-                    <ul class="stack">
-                        <li>Laravel</li>
-                        <li>MySQL</li>
-                        <li>PHP</li>
-                    </ul>
-                    <a class="proyek-link" href="#">View demo</a>
-                </div>
-                <button class="thumb" type="button" data-images="assets/Projek1_4.png, assets/Projek1.png, assets/Projek1_2.png, assets/Projek1_3.png"
-                    data-result="A monthly report that took two days by hand now takes one click."
-                    aria-label="View photos of Co-op Stock"></button>
+        <article class="kartu">
+            <button class="thumb" type="button" data-images="assets/Projek1_4.png, assets/Projek1.png, assets/Projek1_2.png, assets/Projek1_3.png"
+                data-result="A monthly report that took two days by hand now takes one click."
+                aria-label="View photos of Co-op Stock"></button>
+            <div class="kartu-body">
+                <span class="jenis">My Project, 2024</span>
+                <h3>Door Travel</h3>
+                <p>A stock monitor for the student cooperative, with low-stock alerts and downloadable monthly reports.</p>
+                <ul class="stack"><li>Laravel</li><li>MySQL</li><li>PHP</li></ul>
             </div>
-        </details>
+        </article>
 
-        <details>
-            <summary>
-                <div><h3>Reads For You</h3></div>
-                <span class="jenis">Thesis, 2024</span>
-            </summary>
-            <div class="isi">
-                <div>
-                    <p>A book recommender based on borrowing history. I compared two approaches and explained how they work in terms a librarian can follow.</p>
-                    <ul class="stack"><li>Python</li><li>Pandas</li><li>Scikit-learn</li><li>Flask</li></ul>
-                    <a class="proyek-link" href="#">Read the thesis summary</a>
-                </div>
-                <button class="thumb" type="button" data-images=""
-                    data-result="The best approach reached 68% top-5 accuracy on test data."
-                    aria-label="View photos of Reads For You"></button>
+        <article class="kartu">
+            <button class="thumb" type="button" data-images="assets/Projek2_1.png, assets/Projek2_2.png, assets/Projek2_3.png"
+                data-result="The best approach reached 68% top-5 accuracy on test data."
+                aria-label="View photos of Reads For You"></button>
+            <div class="kartu-body">
+                <span class="jenis">Group project, 2025</span>
+                <h3>Gamelab Project</h3>
+                <p>A book recommender based on borrowing history. I compared two approaches and explained how they work in terms a librarian can follow.</p>
+                <ul class="stack"><li>Python</li><li>Pandas</li><li>Scikit-learn</li><li>Flask</li></ul>
             </div>
-        </details>
+        </article>
 
-        <details>
-            <summary>
-                <div><h3>Shared Class Schedule</h3></div>
+        <article class="kartu">
+            <button class="thumb" type="button" data-images=""
+                data-result="Reached the final of a regional app contest."
+                aria-label="View photos of Shared Class Schedule"></button>
+            <div class="kartu-body">
                 <span class="jenis">Contest project, 2022</span>
-            </summary>
-            <div class="isi">
-                <div>
-                    <p>An app that matches free time slots between students so group work doesn’t end in a group-chat argument.</p>
-                    <ul class="stack"><li>Firebase</li><li>React</li><li>Figma</li></ul>
-                    <a class="proyek-link" href="#">View code on GitHub</a>
-                </div>
-                <button class="thumb" type="button" data-images=""
-                    data-result="Reached the final of a regional app contest."
-                    aria-label="View photos of Shared Class Schedule"></button>
+                <h3>Shared Class Schedule</h3>
+                <p>An app that matches free time slots between students so group work doesn’t end in a group-chat argument.</p>
+                <ul class="stack"><li>Firebase</li><li>React</li><li>Figma</li></ul>
             </div>
-        </details>
+        </article>
+
     </div>
 </section>
 
 <section id="contact">
     <h2 class="judul">Contact</h2>
     <div class="kontak">
-        <div><p>Got a job opening, a small project, or just want to talk tech? Send a message. I usually reply within a day.</p>
-            <ul>
+        <div>
+            <p style="font-size: 18px;" class="kontak-intro">Open to job opportunities and freelance projects. The fastest way to reach 
+                me is by email.</p>
+            <ul class="hubungi">
                 <li><span>Email</span><a href="mailto:fadiantisma@gmail.com">fadiantisma@gmail.com</a></li>
-                <li><span>GitHub</span><a href="https://github.com/username" target="_blank" rel="noopener noreferrer">github.com/username</a></li>
+                <li><span>WhatsApp</span><a href="https://wa.me/6282284605321" target="_blank" rel="noopener noreferrer">+62 822 8460 5321</a></li>
                 <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/isma-fadianti-a769863a7/" target="_blank" rel="noopener noreferrer">linkedin.com/in/isma-fadianti</a></li>
+                <li><span>GitHub</span><a href="https://github.com/username" target="_blank" rel="noopener noreferrer">github.com/username</a></li>
+                <li><span>Instagram</span><a href="https://www.instagram.com/fadiantisma" target="_blank" rel="noopener noreferrer">@fadiantisma</a></li>
             </ul>
         </div>
+
         <form id="form" action="#">
-            <label>Name <input type="text" name="nama" required autocomplete="name"></label>
-            <label>Message <textarea name="pesan" required></textarea></label>
-            <button class="btn" type="submit">Send by email</button>
+            <h3>Send a message</h3>
+            <label>Name <input type="text" name="nama" required autocomplete="name" placeholder="Your name"></label>
+            <label>Message <textarea name="pesan" required placeholder="Tell me about your project or opportunity..."></textarea></label>
+            <button class="btn utama" type="submit">Send message</button>
         </form>
     </div>
 </section>
@@ -291,7 +279,16 @@
 
 <footer>
     <div class="wrap">
-        Built with plain HTML and CSS by Ismafadianti, 2026.
+        <div class="footer-bottom">
+            <div class="social-links-circle">
+                <a href="tel:+6282284605321" class="social-item" title="Telepon" aria-label="Telepon"><i class="fas fa-phone-alt"></i></a>
+                <a href="mailto:fadiantisma@gmail.com" class="social-item" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/isma-fadianti-a769863a7/" target="_blank" rel="noopener noreferrer" class="social-item" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/IsmaFadianti17" target="_blank" rel="noopener noreferrer" class="social-item" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/fadiantisma" target="_blank" rel="noopener noreferrer" class="social-item" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        Built with plain <span>HTML</span> and <span>CSS</span> by Ismafadianti, 2026.
     </div>
 </footer>
 
@@ -476,17 +473,18 @@
  });
 
  function buka(btn){
-  lastBtn=btn;imgs=btn._imgs;
-  var det=btn.closest('details');
-  mTitle.textContent=det.querySelector('summary h3').textContent;
-  mDesc.textContent=det.querySelector('.isi p').textContent;
-  mStack.innerHTML=det.querySelector('.stack').innerHTML;
-  var link=det.querySelector('.proyek-link'),href=link.getAttribute('href');
-  mLink.textContent=link.textContent;
-  mLink.href=href;
-  mLink.hidden=(href==='#');
-  mResult.textContent=btn.dataset.result||'';
-  mResult.hidden=!btn.dataset.result;
+    lastBtn=btn;imgs=btn._imgs;
+    var det=btn.closest('.kartu');
+    mTitle.textContent=det.querySelector('h3').textContent;
+    mDesc.textContent=det.querySelector('.kartu-body p').textContent;
+    mStack.innerHTML=det.querySelector('.stack').innerHTML;
+    var link=det.querySelector('.proyek-link');
+    var href=link?link.getAttribute('href'):'#';
+    mLink.textContent=link?link.textContent:'View project';
+    mLink.href=href;
+    mLink.hidden=(href==='#');
+    mResult.textContent=btn.dataset.result||'';
+    mResult.hidden=!btn.dataset.result;
 
   sSlides.innerHTML=imgs.map(function(s){return '<div class="slide"><img src="'+s+'" alt=""></div>'}).join('');
   sDots.innerHTML=imgs.map(function(_,i){return '<button type="button" aria-label="Photo '+(i+1)+'"></button>'}).join('');
@@ -576,7 +574,7 @@
   ['#skills .skill-col','up',0.12],
   ['#education .edu-cert-title','left',0],
   ['#education .edu-cert-item','left',0.1],
-  ['#portfolio .proyek details','up',0.08],
+  ['#portfolio .kartu','up',0.1],
   ['#contact .kontak > div','left',0],
   ['#contact .kontak form','right',0]
  ];
