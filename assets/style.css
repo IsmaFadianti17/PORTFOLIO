@@ -20,12 +20,12 @@
    16. Transisi (halaman + masuk/keluar section)
    17. Lain-lain
    ========================================================================== */
-
-
+ 
+ 
 /* ==========================================================================
    1. TOKENS
    ========================================================================== */
-
+ 
 :root {
     --paper: #EDF0F4;
     --grid: #D3D9E3;
@@ -40,7 +40,7 @@
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-
+ 
 /* Mode gelap otomatis (mengikuti sistem) */
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -55,7 +55,7 @@
         --markink: #121A2E;
     }
 }
-
+ 
 /* Mode gelap manual (tombol tema) */
 :root[data-theme="dark"] {
     --paper: #121A2E;
@@ -68,58 +68,57 @@
     --mark: #E8D43C;
     --markink: #121A2E;
 }
-
-
+ 
+ 
 /* ==========================================================================
    2. BASE
    ========================================================================== */
-
+ 
 *,
 *::before,
 *::after {
     box-sizing: inherit;
 }
-
+ 
 html {
     scroll-behavior: smooth;
     scroll-padding-top: calc(64px + env(safe-area-inset-top, 0px));
 }
-
+ 
 body {
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font: 400 17px/1.65 "IBM Plex Sans", system-ui, sans-serif;
-    background-image:
-        linear-gradient(var(--grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    font: 300 17px/1.65;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #edf0f4;
     background-size: 32px 32px;
 }
-
+ 
 h1,
 h2,
 h3 {
-    font-family: "Bricolage Grotesque", "Arial Black", sans-serif;
-    line-height: 1.05;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.01;
     margin: 0;
     letter-spacing: -.02em;
 }
-
+ 
 a {
     color: inherit;
 }
-
+ 
 :focus-visible {
     outline: 3px solid var(--pen);
     outline-offset: 3px;
 }
-
+ 
 .wrap {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 24px;
 }
-
+ 
 body::before {
     content: "";
     position: fixed;
@@ -128,11 +127,8 @@ body::before {
     background: var(--paper);
     z-index: 10;
 }
+ 
 
-
-/* ==========================================================================
-   3. HEADER & NAVIGASI
-   ========================================================================== */
 
 header {
     position: sticky;
@@ -141,7 +137,7 @@ header {
     background: var(--paper);
     border-bottom: 2px solid var(--ink);
 }
-
+ 
 header .wrap {
     display: flex;
     align-items: center;
@@ -149,34 +145,50 @@ header .wrap {
     height: 64px;
     gap: 16px;
 }
-
+ 
 .logo {
-    font: 800 20px "Bricolage Grotesque", sans-serif;
+    font: 700 20px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
     white-space: nowrap;
 }
-
+ 
 nav {
     display: flex;
-    gap: 4px;
+    gap: 9px;
     overflow-x: auto;
     scrollbar-width: none;
 }
-
+ 
 nav a {
+    position: relative;
     padding: 6px 12px;
     text-decoration: none;
     font-weight: 500;
     font-size: 15px;
-    border-radius: 10px;
+    border-radius: 0;
     white-space: nowrap;
 }
 
-nav a:hover {
+/* Garis di bawah menu, awalnya tidak terlihat */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 0;
+    height: 3px;
+    border-radius: 2px;
     background: var(--mark);
-    color: var(--markink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
 }
-
+ 
+nav a:hover::after,
+nav a:focus-visible::after {
+    transform: scaleX(1);
+}
+ 
 /* Tombol ganti tema */
 #tema {
     background: none;
@@ -189,16 +201,16 @@ nav a:hover {
     font-size: 15px;
     flex: none;
 }
-
-
+ 
+ 
 /* ==========================================================================
    4. SECTION & JUDUL
    ========================================================================== */
-
+ 
 section {
     padding: 60px 0 40px;
 }
-
+ 
 .judul {
     font-size: clamp(34px, 6vw, 52px);
     margin-bottom: 36px;
@@ -221,7 +233,7 @@ section {
     overflow: hidden;
     aspect-ratio: 4/5;
 }
-
+ 
 .foto img,
 .foto svg {
     width: 100%;
@@ -229,7 +241,7 @@ section {
     object-fit: cover;
     display: block;
 }
-
+ 
 .foto figcaption {
     position: absolute;
     left: 0;
@@ -241,11 +253,11 @@ section {
     padding: 6px 12px;
     text-align: center;
 }
-
+ 
 .foto.ada figcaption {
     display: none;
 }
-
+ 
 .foto:hover figcaption {
     background: var(--mark);
     color: var(--markink);
@@ -259,43 +271,43 @@ section {
 #home {
     padding-top: 72px;
 }
-
+ 
 .hero {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 56px;
     align-items: center;
 }
-
+ 
 .salam {
     font-size: 20px;
     margin: 0 0 16px;
     color: #F4E04D;
 }
-
+ 
 h1 {
     font-size: clamp(52px, 11vw, 116px);
     font-weight: 800;
     letter-spacing: -.045em;
 }
-
+ 
 h1 span {
     display: block;
 }
-
+ 
 .peran {
     font-size: clamp(10px, 2.6vw, 18px);
     max-width: 35ch;
     margin: 28px 0 32px;
-    font-family: "Bricolage Grotesque", "Arial Black", sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+ 
 .tombol {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
 }
-
+ 
 /* Tombol umum */
 .btn {
     display: inline-block;
@@ -310,21 +322,21 @@ h1 span {
     color: var(--ink);
     cursor: pointer;
 }
-
+ 
 .btn:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0 var(--ink);
 }
-
+ 
 .btn.utama {
     background: var(--ink);
     color: var(--paper);
 }
-
+ 
 .herofoto {
     position: relative;
 }
-
+ 
 .catatan {
     position: absolute;
     left: -36px;
@@ -338,7 +350,7 @@ h1 span {
     font-size: 15px;
     line-height: 1.4;
 }
-
+ 
 .catatan b {
     font: 700 17px "Bricolage Grotesque", sans-serif;
     display: block;
@@ -380,7 +392,7 @@ h1 span {
     border: 2px solid var(--ink);
     border-top-width: 3px;
     border-radius: 32px;
-    box-shadow: 8px 8px 0 var(--ink);
+    box-shadow: none;
     padding: 40px 22px 24px;
     text-align: center;
 }
@@ -532,11 +544,11 @@ h1 span {
 }
 
 .teks p {
-    margin: 0 0 17px;
+    margin: 0 0 20px;
     text-align: justify;
     font-family: "IBM Plex Sans", system-ui, sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .info {
@@ -900,68 +912,85 @@ h1 span {
 }
 
 .proyek {
-    border-top: 2px solid var(--ink);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   /* card sisa otomatis di tengah */
+    gap: 28px 24px;
 }
 
-.proyek details {
-    border-bottom: 2px solid var(--ink);
+
+/* ----- Card proyek ----- */
+
+.kartu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 16px;
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 32px;
+    box-shadow: 8px 8px 0 var(--ink);
+    transition: translate .15s, box-shadow .15s;
+    width: calc((100% - 24px) / 2)
 }
 
-.proyek summary {
-    list-style: none;
-    cursor: pointer;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 8px 24px;
-    align-items: baseline;
-    padding: 22px 4px;
+.kartu:hover {
+    translate: 3px 3px;
+    box-shadow: 5px 5px 0 var(--ink);
 }
 
-.proyek summary::-webkit-details-marker {
-    display: none;
+/* Saat card ikut animasi masuk (.rv), hover tetap mulus tanpa ikut tertunda */
+.js .kartu.rv {
+    transition:
+        opacity var(--t-dur) ease,
+        transform var(--t-dur) var(--t-ease),
+        translate .15s ease,
+        box-shadow .15s ease;
+    transition-delay: var(--d, 0s), var(--d, 0s), 0s, 0s;
 }
 
-.proyek summary:hover h3 {
-    background: var(--mark);
-    color: var(--markink);
+.kartu .thumb {
+    max-width: none;
+    height: 250px;             /* sebelumnya 150px, lebih besar = lebih jelas */
 }
 
-.proyek h3 {
-    font-size: clamp(24px, 4vw, 36px);
-    display: inline;
-    padding: 0 4px;
-    margin-left: -4px;
+.kartu-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 8px 8px;
+}
+
+.kartu .jenis {
+    margin-bottom: 4px;
+}
+
+.kartu h3 {
+    margin: 0 0 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: clamp(22px, 3vw, 28px);
     font-weight: 650;
+    line-height: 1.2;
+}
+
+.kartu p {
+    margin: 0 0 14px;
+}
+
+.kartu .stack {
+    margin-bottom: 18px;
+}
+
+.proyek-link {
+    margin-top: auto;
+    align-self: flex-start;
+    color: var(--pen);
+    font-weight: 500;
 }
 
 .jenis {
     font-size: 15px;
     color: var(--muted);
-}
-
-.proyek summary::after {
-    content: "+";
-    font: 700 28px;
-    grid-column: 2;
-    grid-row: 1;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.proyek details[open] summary::after {
-    content: "–";
-}
-
-.isi {
-    padding: 0 4px 28px;
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 28px;
-}
-
-.isi p {
-    margin: 0 0 12px;
-    max-width: 58ch;
 }
 
 .stack {
@@ -980,20 +1009,11 @@ h1 span {
     border-radius: 99px;
 }
 
-.isi a {
-    color: var(--pen);
-    font-weight: 500;
+@media (max-width: 700px) {
+    .kartu {
+        width: 100%;           /* HP: 1 card per baris */
+    }
 }
-
-/* Kotak Result (gaya asli) */
-.hasil {
-    background: var(--card);
-    border: 2px dashed var(--line);
-    padding: 16px 18px;
-    font-size: 15px;
-    align-self: start;
-}
-
 
 /* ==========================================================================
    11. GALERI PROYEK (card foto + carousel)
@@ -1447,7 +1467,7 @@ body.no-scroll {
 
 .kontak p {
     max-width: 42ch;
-    margin: 0 0 22px;
+    font-weight: 450;
 }
 
 .kontak ul {
@@ -1574,16 +1594,75 @@ form .btn {
    ========================================================================== */
 
 footer {
-    padding: 56px 0 40px;
+    padding: 28px 0 40px;
+    margin-top: 56px;
+    border-top: 2px solid var(--ink);
     color: var(--muted);
     font-size: 15px;
+    text-align: center;
 }
 
 footer .wrap {
-    border-top: 2px solid var(--ink);
-    padding-top: 20px;
+    border-top: 0;
+    padding-top: 0;
 }
 
+footer span {
+    font-weight: 600;
+    color: var(--ink);
+    padding: 0 2px;
+    border-radius: 4px;
+}
+
+footer span:hover {
+    color: #e8d43c;
+}
+
+/* ----- Ikon sosial media di footer ----- */
+
+.footer-bottom {
+    margin-bottom: 18px;
+}
+
+.social-links-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.social-item {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background .25s ease, color .25s ease,
+                border-color .25s ease, transform .25s ease;
+}
+
+.social-item:hover,
+.social-item:focus-visible {
+    background: var(--mark);
+    border-color: var(--mark);
+    color: var(--markink);
+    transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .social-item { transition: none; }
+}
+
+@media (hover: none) {
+    .social-item:hover { transform: none; }
+}
 
 /* ==========================================================================
    15. RESPONSIVE, PRINT & REDUCED MOTION
@@ -1827,12 +1906,11 @@ header {
 /* ----- 16.4 Nav: tandai section yang sedang dilihat ----- */
 
 nav a {
-    transition: background .2s ease, color .2s ease;
+    transition: color .2s ease;
 }
 
-nav a.aktif {
-    background: var(--mark);
-    color: var(--markink);
+nav a.aktif::after {
+    transform: scaleX(1);
 }
 
 /* ----- 16.5 Tombol back to top ----- */
@@ -2115,4 +2193,153 @@ nav a.aktif {
     header {
         position: static;
     }
+}
+
+
+/* ----- Contact: baris kontak + form ----- */
+
+.kontak {
+    align-items: start;
+}
+
+.kontak .kontak-intro {
+    max-width: 36ch;
+    margin: 0 0 32px;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.kontak .hubungi li {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    align-items: baseline;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+}
+
+.kontak .hubungi li:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.hubungi li span {
+    font-size: 14px;
+    letter-spacing: .02em;
+}
+
+.hubungi a {
+    font-weight: 500;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    background: linear-gradient(var(--mark), var(--mark)) 0 100% / 0 2px no-repeat;
+    transition: background-size .25s ease;
+}
+
+.hubungi a:hover,
+.hubungi a:focus-visible {
+    background-size: 100% 2px;
+}
+
+#contact .kontak > div.in li:nth-child(4) { transition-delay: .36s; }
+#contact .kontak > div.in li:nth-child(5) { transition-delay: .48s; }
+
+.kontak form {
+    gap: 20px;
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+.kontak form h3 {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: clamp(22px, 3vw, 26px);
+    font-weight: 650;
+}
+
+.kontak input[type=text],
+.kontak textarea {
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    transition: border-color .2s;
+}
+
+.kontak input[type=text]:focus,
+.kontak textarea:focus {
+    border-color: var(--ink);
+}
+
+.kontak input::placeholder,
+.kontak textarea::placeholder {
+    color: var(--muted);
+}
+
+.kontak form .btn {
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.kontak form .btn:hover {
+    transform: none;
+    opacity: .88;
+}
+
+@media (max-width: 640px) {
+    .kontak .hubungi li {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    .kontak form {
+        padding: 20px;
+    }
+}
+
+
+/* ==========================================================================
+   PORTFOLIO – card & galeri bergaya tenang (bagian lain tetap desain awal)
+   ========================================================================== */
+
+.kartu {
+    border-width: 1px;
+    border-color: var(--line);
+    border-radius: 14px;
+    box-shadow: none;
+}
+
+.kartu:hover {
+    translate: none;
+    box-shadow: none;
+    border-color: var(--ink);
+}
+
+.kartu .thumb {
+    border-radius: 10px;
+}
+
+.stack li {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+#portfolio .stack li:hover {
+    transform: none;
+    background: none;
+    color: var(--muted);
+}
+
+.modal-box {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+}
+
+.modal-close,
+.slide-btn,
+.dots button {
+    border-width: 1px;
 }
